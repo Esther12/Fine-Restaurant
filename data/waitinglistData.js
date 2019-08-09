@@ -8,6 +8,10 @@ var waitlistArray = [
     
     ];
 
+    module.exports = {
+        waitlistArray : waitlistArray ,
+      };
+
 
 
 

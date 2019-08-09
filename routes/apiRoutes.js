@@ -1,18 +1,42 @@
+var express = require("express");
+var app = express();
+var table = require("../data/tableData.js");
+var waitlist = require("../data/waitinglistData.js");
+
+var PORT = process.env.PORT || 3000;
 
 
-app.post("/", function(req, res) {
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
+app.post("/table/add", function(req, res) {
   
     var newReservation = req.body;
   
-    newReservation.routeName = newReservation.replace(/\s+/g, "").toLowerCase();
+
+    // newReservation.routeName = newReservation.replace(/\s+/g, "").toLowerCase();
   
     console.log(newReservation);
-  
-    tableArray.push(newReservation);
-  
+
     res.json(newReservation);
+    if(table.tableArray.length > 5){
+      waitlist.waitlistArray.push(newReservation);
+    }else{
+      table.tableArray.push(newReservation);
+    }
   });
 
+app.get("/table/tablelink", function(req,res){
+      return res.json(table.tableArray);
+})
+  app.get("/table/waitlist", function(req,res){
+    return res.json( waitlist.waitlistArray);
+})
+
+app.listen(PORT, function() {
+  console.log("App listening on PORT: " + PORT);
+  });
 
 // ===============================================================================
 // LOAD DATA
