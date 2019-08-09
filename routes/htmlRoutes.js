@@ -14,19 +14,19 @@ var app = express.Router();
   // In each of the below cases the user is shown an HTML page of content
   // ---------------------------------------------------------------------------
   app.get("/home", function(req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
+    res.sendFile(path.join(__dirname, "../public/home.html"));
   });
 
   app.get("/reserve", function(req, res) {
-    res.sendFile(path.join(__dirname, "reserve.html"));
+    res.sendFile(path.join(__dirname, "../public/reserve.html"));
   });
 
   app.get("/table", function(req, res) {
-    res.sendFile(path.join(__dirname, "table.html"));
+    res.sendFile(path.join(__dirname, "../public/table.html"));
   });
 // If no matching route is found default to home
 app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
+    res.sendFile(path.join(__dirname, "../public/home.html"));
   });
 
   module.exports = app;
