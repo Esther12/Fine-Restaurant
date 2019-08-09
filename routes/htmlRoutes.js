@@ -3,6 +3,8 @@
 // We need to include the path package to get the correct file path for our html
 // ===============================================================================
 var path = require("path");
+var express = require("express");
+var app = express.Router();
 // ===============================================================================
 // ROUTING
 // ===============================================================================

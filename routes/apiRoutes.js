@@ -1,16 +1,9 @@
 var express = require("express");
-var app = express();
+var app = express.Router();
 var table = require("../data/tableData.js");
 var waitlist = require("../data/waitinglistData.js");
 
-var PORT = process.env.PORT || 3000;
-
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-
-app.post("/table/add", function(req, res) {
+app.post("/add", function(req, res) {
   
     var newReservation = req.body;
   
@@ -27,16 +20,15 @@ app.post("/table/add", function(req, res) {
     }
   });
 
-app.get("/table/tablelink", function(req,res){
+app.get("/tablelink", function(req,res){
       return res.json(table.tableArray);
 })
-  app.get("/table/waitlist", function(req,res){
+  app.get("/waitlist", function(req,res){
     return res.json( waitlist.waitlistArray);
 })
 
-app.listen(PORT, function() {
-  console.log("App listening on PORT: " + PORT);
-  });
+
+module.exports = app;
 
 // ===============================================================================
 // LOAD DATA
