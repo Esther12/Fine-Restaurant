@@ -1,5 +1,6 @@
 var express = require("express");
 var apiRoutes = require("./routes/apiRoutes");
+var htmlRoutes = require("./routes/htmlRoutes");
 
 var app = express();
 
@@ -12,7 +13,7 @@ app.use(express.json());
 
 
 app.use("/api/table", apiRoutes);
-
+app.use("/api", htmlRoutes);
 app.listen(PORT, function() {
 console.log("App listening on PORT: " + PORT);
 });
