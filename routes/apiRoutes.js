@@ -12,8 +12,6 @@ app.post("/", function(req, res) {
   
     res.json(newReservation);
   });
-
-
 // ===============================================================================
 // LOAD DATA
 // We are linking our routes to a series of "data" sources.
