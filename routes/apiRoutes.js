@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 
 app.post("/", function(req, res) {
@@ -14,7 +13,8 @@ app.post("/", function(req, res) {
   
     res.json(newReservation);
   });
-=======
+
+
 // ===============================================================================
 // LOAD DATA
 // We are linking our routes to a series of "data" sources.
@@ -48,4 +48,3 @@ app.post("/", function(req, res) {
   // Don"t worry about it!
 
       // Empty out the arrays of data
->>>>>>> 2bf7cfc621ee005d0c9f23e6b5bb4fcae4338014
