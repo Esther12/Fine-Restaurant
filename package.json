@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Esther12/Fine-Restaurant/issues"
   },
-  "homepage": "https://github.com/Esther12/Fine-Restaurant#readme"
+  "homepage": "https://github.com/Esther12/Fine-Restaurant#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
