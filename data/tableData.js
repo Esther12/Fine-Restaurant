@@ -8,3 +8,8 @@ var tableArray = [
 
 ];
 
+module.exports = {
+    essentials: essentials,
+    niceToHaves: niceToHaves
+  };
+  

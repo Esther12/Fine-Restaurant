@@ -1,3 +1,16 @@
+var waitlistArray = [
+    {
+        customerName: "",
+        customerEmail: "",
+        customerID: "",
+        customerPhonenumber: ""
+    }
+    
+    ];
+
+
+
+
 // ===============================================================================
 // DATA
 // Below data will hold all of the waitlist tables.

@@ -1,18 +1,43 @@
+var express = require("express");
+var app = express();
+var tableArray = require("./data/tableData.js");
+var waitlistArray = require("./data/tableData.js");
+
+var PORT = process.env.PORT || 8080;
 
 
-app.post("/", function(req, res) {
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
+app.post("/table/add", function(req, res) {
   
     var newReservation = req.body;
   
 
-    newReservation.routeName = newReservation.replace(/\s+/g, "").toLowerCase();
+    // newReservation.routeName = newReservation.replace(/\s+/g, "").toLowerCase();
   
     console.log(newReservation);
-  
-    tableArray.push(newReservation);
-  
+
     res.json(newReservation);
+    if(tableArray.length > 5){
+      waitlistArray.push(newReservation);
+    }else{
+      tableArray.push(newReservation);
+    }
   });
+
+app.get("table/tablelink", function(req,res){
+      return res.json(tableArray);
+})
+  app.get("table/waitlist", function(req,res){
+    return res.json(waitlistArray);
+})
+
+app.listen(PORT, function() {
+  console.log("App listening on PORT: " + PORT);
+  });
+
 // ===============================================================================
 // LOAD DATA
 // We are linking our routes to a series of "data" sources.
