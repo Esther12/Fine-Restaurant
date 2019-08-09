@@ -8,4 +8,7 @@ var tableArray = [
 
 ];
 
-module.exports = tableArray;
+module.exports = {
+    tableArray: tableArray,
+  };
+  
