@@ -1,9 +1,9 @@
 var express = require("express");
 var app = express();
-var tableArray = require("./data/tableData.js");
-var waitlistArray = require("./data/tableData.js");
+var table = require("../data/tableData.js");
+var waitlist = require("../data/waitinglistData.js");
 
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
 
 app.use(express.urlencoded({ extended: true }));
@@ -20,18 +20,18 @@ app.post("/table/add", function(req, res) {
     console.log(newReservation);
 
     res.json(newReservation);
-    if(tableArray.length > 5){
-      waitlistArray.push(newReservation);
+    if(table.tableArray.length > 5){
+      waitlist.waitlistArray.push(newReservation);
     }else{
-      tableArray.push(newReservation);
+      table.tableArray.push(newReservation);
     }
   });
 
-app.get("table/tablelink", function(req,res){
-      return res.json(tableArray);
+app.get("/table/tablelink", function(req,res){
+      return res.json(table.tableArray);
 })
-  app.get("table/waitlist", function(req,res){
-    return res.json(waitlistArray);
+  app.get("/table/waitlist", function(req,res){
+    return res.json( waitlist.waitlistArray);
 })
 
 app.listen(PORT, function() {
